@@ -37,7 +37,7 @@ class UserManager:
         if role.lower() == "customer":
             new_user = Customer(email, password)
         elif role.lower() == 'seller':
-            new_user = Customer(email, password)
+            new_user = Seller(email, password)
         else:
             raise ValueError("Invalid user role!")
 
@@ -49,4 +49,4 @@ class UserManager:
         for user in self.__users:
             if user.email.lower() == email.lower() and user.verify_password(password):
                 return user
-            return None
+        return None

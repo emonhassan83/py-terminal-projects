@@ -84,7 +84,7 @@ def run_app():
 
                     elif cust_choice == "2":
                         pid = input("Enter Product ID to Buy: ").strip()
-                        product = product_mgr.find_product_by_id(pid)
+                        product = product_mgr.find_product_byId(pid)
 
                         if not product:
                             print("❌ Invalid Product ID or Product Stock Out!")
@@ -92,14 +92,14 @@ def run_app():
 
                         try:
                             qty = int(input(f"Enter Quantity for '{product.name}' (Available {product.stock}): "))
-                            order = order_mgr.place_order(current_user, product, qty)
+                            order = order_mgr.place_order(current_user.email, product.name, product, qty)
                             print(f"\n🎉 Order Placed Successfully!")
                             order.display_order()
                         except ValueError as e:
                             print(f"❌ Error: {e}")
 
                     elif cust_choice == "3":
-                        my_orders = order_mgr.get_orders_by_customer(current_user.email)
+                        my_orders = order_mgr.get_order_by_customer(current_user.email)
                         print("\n--- MY ORDERS ---")
                         if not my_orders:
                             print("No orders placed yet.")

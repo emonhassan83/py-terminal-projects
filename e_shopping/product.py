@@ -38,4 +38,4 @@ class ProductManager:
         for prod in self.__products:
             if prod.product_id == product_id and prod.stock > 0:
                 return prod
-            return None
+        return None
