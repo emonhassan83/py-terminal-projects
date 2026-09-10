@@ -55,6 +55,9 @@ class Driver(User):
         print(f"Driver name: {self.name}")
 
     def accept_ride(self, ride):
+        ride.start_ride()
         ride.set_driver(self)
 
+    def reach_destination(self, ride):
+        ride.end_ride()
 

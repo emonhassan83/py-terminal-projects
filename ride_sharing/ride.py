@@ -25,19 +25,29 @@ class Ride:
         self.driver = None
         self.start_time = None
         self.end_time = None
-        self.estimated_fare = None
+        self.estimated_fare = self.calculate_fare(vehicle.vehicle_type)
         self.vehicle = vehicle
 
     def set_driver(self, driver):
         self.driver = driver
 
-    def start_ride(self, amount):
+    def start_ride(self):
         self.start_time = datetime.now()
 
     def end_ride(self):
         self.end_time = datetime.now()
         self.rider.wallet -= self.estimated_fare
         self.driver.wallet += self.estimated_fare
+
+    def calculate_fare(self, vehicle):
+        distance = 10
+        fare_per_km ={
+            'car': 30,
+            'bike': 20,
+            'cng': 25
+        }
+
+        return distance * fare_per_km.get(vehicle)
 
     def __repr__(self):
         return f"Ride details. Started {self.start_location} to {self.end_location}"
