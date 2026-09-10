@@ -15,7 +15,7 @@ class RideSharing:
         self.drivers.append(driver)
 
     def __str__(self):
-        return f"Company name{self.company_name} with riders: {len(self.riders)} and Drivers: {len(self.drivers)}"
+        return f"Company name {self.company_name} with riders: {len(self.riders)} and Drivers: {len(self.drivers)}"
 
 class Ride:
     def __init__(self, start_location, end_location, vehicle):

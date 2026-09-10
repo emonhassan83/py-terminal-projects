@@ -38,10 +38,18 @@ class Rider(User):
         ride_request = RideRequest(self, destination)
         ride_matching = RideMatching(ride_sharing.drivers)
         ride = ride_matching.find_driver(ride_request, vehicle_type)
+        ride.rider = self
         self.current_ride = ride
         print('YAH! we got a ride')
 
     def show_current_ride(self):
+        print("Ride Details!!")
+        print(f"Rider: {self.name}")
+        print(f"Driver: {self.current_ride.driver.name}")
+        print(f"Selected vehicle: {self.current_ride.vehicle.vehicle_type}")
+        print(f"Start location: {self.current_ride.start_location}")
+        print(f"End location: {self.current_ride.end_location}")
+        print(f"Total coast: {self.current_ride.estimated_fare}")
         print(self.current_ride)
 
 

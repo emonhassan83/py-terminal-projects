@@ -10,8 +10,6 @@ ride_share.add_rider(rider)
 ride_share.add_driver(driver)
 
 rider.request_ride(ride_share, 'uttra', 'car')
-rider.show_current_ride()
 
 driver.reach_destination(rider.current_ride)
-
-print(ride_share)
+rider.show_current_ride()
